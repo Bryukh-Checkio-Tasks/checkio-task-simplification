@@ -1,39 +1,34 @@
 <p>
-    <i>( Describe task in general )</i>
+    You are given a mathematical expression with brackets and with one variable as a string (ex. "x*x*x + (x-1)*(x+1)").
+    You should convert this to Polynomial (<a href="http://en.wikipedia.org/wiki/Polynomial">Read at Wiki</a>).
+    You can use only + - *.
+    Power of "x" represented with multiplication.
 </p>
+    <p> The final form must be in the next format:<br>
+     СN*x*x*...(n times)...*x+CN1*x*x*...(n-1 times)...*x+...+C1*x+C0<br>
+    where<br>
+    CN, CN1 ...C1, C0 - constants, integers.<br>
+    if C = 0, then don't show this term (ex. 2*x*x+3)<br>
+    if C = 1, then don't show C. (ex. x*x+2*x).<br>
+    if C = -1, then don't show C, only "-". (ex. x*x-x).<br>
 
-<p>
-    Sum two passed ints
-</p>
+    Terms must be in descend order, sorting by power of variable.
 
-<p style="text-align: center;">
-    <img class="for_info_only" title="example" src="{{MEDIA}}example.png" alt="example" width="392px"/>
-    <img class="for_editor_only" title="example" src="{{MEDIA}}example.png" alt="example" width="380px"/>
-</p>
-
-<p><i>( Explain input and output values )</i></p>
-<p>
-    <strong>Input: </strong> Two arguments. Both are int
-</p>
-
-<p>
-    <strong>Output: </strong> Int. 
 </p>
 
 
+<p><strong>Input: </strong>An expression as a string (unicode string).</p>
 
-<div class="for_info_only">
-    <p><i>( Put some usage examples )</i></p>
-    <p>
-        <strong>Example:</strong>
-    </p>
-    <pre class="brush: python">
-checkio(3, 2) == 5
-checkio(5, 7) == 12
-    </pre>
-</div>
+<p><strong>Output: </strong>A polynomial as a string without whitespaces.</p>
+
+<p class="p1"><strong>Example:</strong></p>
+<pre class="brush: python">checkio(u"x*x*x+(x-1)*(x+1)") == "x*x*x+x*x-1"
+checkio("(x+1)*(x+1)") == "x*x+2*x+1"
+checkio("(x+3)*x*2-x*x") == "x*x+6*x"
+checkio("x+x*x+x*x*x") == "x*x*x+x*x+x"
+checkio("(2*x+3)*2-x+x*x*x*x") == "x*x*x*x+3*x+6"</pre>
 
 <p class="for_info_only">
     <strong>How it is used: </strong>
-    <i>(Here you can explain how it can be used in development and what is usage of this.)</i>
+    It very useful function for mathematical software.
 </p>
