@@ -9,22 +9,11 @@
 
 <script type="text/template" id="template_tryit">
     <div class="tryit-content center-exp">
-        <table class="tool">
-            <tr>
-                <td>
-                    <input type="text" value="test">
-                </td>
-                <td>
-                    <button class="bn-check btn">Action</button>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" class="checkio-result">
-                    Result:<br>
-                    <span class="checkio-result-in">&nbsp;</span>
-                </td>
-            </tr>
-
-        </table>
+        <form class="input-test center_exp">
+            <label class="input-label">Expression:</label>
+            <input type="text" class="input-text uneditable-input"/>
+            <input type="submit" class="btn" value="Simplify"/>
+        </form>
+        <div class="checkio-result center-exp">Result:&nbsp;<span class="checkio-result-in"></span></div>
     </div>
 </script>
