@@ -52,7 +52,7 @@ checkio("(2*x+3)*2-x+x*x*x*x") == "x*x*x*x+3*x+6"</pre>
     <div id="task-hints">
         <ul>
             <li>
-                <a href="javascript: void(0)">Show hint 1</a>
+                <a class="hint-link" href="">Show hint 1</a>
                 <span class="hint">
                     Have you heard about Python’s useful function "eval"?
                 </span>
@@ -75,7 +75,7 @@ checkio("(2*x+3)*2-x+x*x*x*x") == "x*x*x*x+3*x+6"</pre>
 </div>
 
 <script type="text/javascript">
-    var $hintLink = $("#task-hints li a");
+    var $hintLink = $("#task-hints li a.hint-link");
     $hintLink.click(function(e){
         e.preventDefault();
         var $this = $(this);
