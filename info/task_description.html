@@ -1,89 +1,44 @@
 <p>
-    You are given a mathematical expression with brackets and with one variable as a string (ex. "x*x*x+(x-1)*(x+1)").
-    You should convert this to a Polynomial. (<a href="http://en.wikipedia.org/wiki/Polynomial">Read more about this subject on Wikipedia</a>).<br>
-    You can only use the following operators: + - *.
-    The power of "x" should be represented by multiplication.
+    In mathematics, a <a href="http://en.wikipedia.org/wiki/Polynomial">polynomial</a> is an expression consisting of variables (or indeterminates) and coefficients, that
+    involves only the operations of addition, subtraction, multiplication, and non-negative integer exponents.
 </p>
-    <p> The final form of the polynomial should be in the following format:<br>
-     СN*x*x*...(n times)...*x+CN1*x*x*...(n-1 times)...*x+...+C1*x+C0<br>
+<p>
+    You are given a mathematical expression with brackets and with one variable as a string.
+    The expression contains "x", brackets and the following operators: <strong>+&nbsp;-&nbsp;*</strong>.
+    You should convert this to a Polynomial.
+    The power of "x" should be represented by "**".
+</p>
+<p> The final form of the polynomial should be in the following format:<p>
+<pre>
+     C<sub>N</sub>*x**n+C<sub>N1</sub>*x**(n-1)+...+C<sub>1</sub>*x+C<sub>0</sub>
+    </pre>
+<p>
     where<br>
-    CN, CN1 ...C1, C0 - constants, integers.<br>
-    if C = 0, then don't show this term (ex. 2*x*x+3)<br>
-    if C = 1, then don't show C. (ex. x*x+2*x).<br>
-    if C = -1, then don't show C, only "-". (ex. x*x-x).<br>
+    С<sub>N</sub>, С<sub>N1</sub> ...С<sub>1</sub>, С<sub>0</sub> - constants, integers.<br>
+    if C = 0, then don't show this term (ex. 2*x**2+3). The only exception is alone zero (ex. "x-x" == "0").<br>
+    if C = 1, then don't show C. (ex. x**2+2*x). Only if it's not С<sub>0</sub>.<br>
+    if C = -1, then don't show C, only "-". (ex. x*x-x). Only if it's not С<sub>0</sub>.<br>
+    if power of x is 1, then don't show power (ex. 5*x).
 
     Terms must be in descend order, sorted by the power of the variable.
 
 </p>
 
 
-<p><strong>Input: </strong>An expression as a string (unicode string).</p>
+<p><strong>Input: </strong>An expression as a string (unicode).</p>
 
 <p><strong>Output: </strong>A polynomial as a string without whitespaces.</p>
 
-<p class="p1"><strong>Example:</strong></p>
-<pre class="brush: python">checkio(u"x*x*x+(x-1)*(x+1)") == "x*x*x+x*x-1"
-checkio("(x+1)*(x+1)") == "x*x+2*x+1"
-checkio("(x+3)*x*2-x*x") == "x*x+6*x"
-checkio("x+x*x+x*x*x") == "x*x*x+x*x+x"
-checkio("(2*x+3)*2-x+x*x*x*x") == "x*x*x*x+3*x+6"</pre>
-
-
-
-
-
-<style>
-    #task-hints .hint {
-        display: none;
-    }
-
-    #task-hints ul {
-        margin-top: 10px;
-    }
-
-    #task-hints ul li {
-        text-indent: 20px;
-        font-style: italic;
-    }
-</style>
-
-<div>
-    <strong>Hints:</strong> It can help, if you get stuck<br>
-    <div id="task-hints">
-        <ul>
-            <li>
-                <a class="hint-link" href="">Show hint 1</a>
-                <span class="hint">
-                    Have you heard about Python’s useful function "eval"?
-                </span>
-            </li>
-            <li>
-                <a class="hint-link" href="javascript: void(0)">Show hint 2</a>
-                <span class="hint">
-                    Remember classes and realize your own object for polynomial.
-                </span>
-            </li>
-            <li>
-                <a class="hint-link" href="">Show hint 3</a>
-                <span class="hint">
-                    Python has «magic» methods for objects. Read about it <a href="http://www.rafekettler.com/magicmethods.html#numeric">here</a>.
-                </span>
-            </li>
-
-        </ul>
-    </div>
-</div>
-
-<script type="text/javascript">
-    var $hintLink = $("#task-hints li a.hint-link");
-    $hintLink.click(function(e){
-        e.preventDefault();
-        var $this = $(this);
-        $this.hide();
-        $this.parent().find(".hint").slideDown();
-        return false;
-    })
-</script>
+<p><strong>Example:</strong></p>
+<pre class="brush: python">simplify(u"x*x*x+(x-1)*(x+1)") == "x**3+x**2-1"
+simplify("(x+1)*(x+1)") == "x**2+2*x+1"
+simplify("(x+3)*x*2-x*x") == "x**2+6*x"
+simplify("x+x**2+x*x*x") == "x**3+x**2+x"
+simplify("(2*x+3)*2-x+x*x*x*x") == "x**4+3*x+6"
+simplify("x*x-(x-1)*(x+1)+1") == "0"
+simplify("5-5-x") == "-x"
+simplify("x*x*x-x*x*x-1") == "-1"
+</pre>
 
 
 <p class="for_info_only">
