@@ -30,12 +30,13 @@
 <p><strong>Output: </strong>A polynomial as a string without whitespaces.</p>
 
 <p><strong>Example:</strong></p>
-<pre class="brush: python">simplify(u"x*x*x+(x-1)*(x+1)") == "x**3+x**2-1"
+<pre class="brush: python">
+simplify("(x-1)*(x+1)") == "x**2-1"
 simplify("(x+1)*(x+1)") == "x**2+2*x+1"
 simplify("(x+3)*x*2-x*x") == "x**2+6*x"
-simplify("x+x**2+x*x*x") == "x**3+x**2+x"
+simplify("x+x*x+x*x*x") == "x**3+x**2+x"
 simplify("(2*x+3)*2-x+x*x*x*x") == "x**4+3*x+6"
-simplify("x*x-(x-1)*(x+1)+1") == "0"
+simplify("x*x-(x-1)*(x+1)-1") == "0"
 simplify("5-5-x") == "-x"
 simplify("x*x*x-x*x*x-1") == "-1"
 </pre>
