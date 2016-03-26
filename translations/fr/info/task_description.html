@@ -1,0 +1,70 @@
+<p class="story">
+    "Je crois en la simplicité. 
+    Il est aussi stupéfiant que triste de constater que même les plus avisés s'imaginent devoir réaliser quotidiennement
+    de nombreuses tâches  futiles ; et surprenant qu'ils négligent ce à quoi ils tiennent réellement.
+    Quand un mathématicien veut résoudre un problème épineux, il commence par libérer les équations 
+    du tout ce qui les complique inutilement, et les réduit à leur plus simple expression.
+    Alors simplifiez le problème de la vie, faites la distinction entre le nécessaire et le réel. Sondez la terre pour voir
+    où vos racines vitales courent.
+    "<br>
+    "I do believe in simplicity. It is astonishing as well as sad, how many trivial affairs even the wisest thinks he
+    must attend to in a day; how singular an affair he thinks he must omit. When the mathematician would solve a
+    difficult problem, he first frees the equation of all incumbrances, and reduces it to its simplest terms. So
+    simplify the problem of life, distinguish the necessary and the real. Probe the earth to see where your main roots
+    run."<br>
+    -― Henry David Thoreau
+</p>
+<p>
+    En mathématiques, un <a href="http://en.wikipedia.org/wiki/Polynomial">polynôme</a>
+    est une expression constitée à partir de variables (ou indéterminées) et de coefficients, qui n'utilise pour opérations
+    que l'addition, la soustraction, la multiplication et des exposants entiers naturels.
+</p>
+<p>
+    Il vous est donné une expression mathématique avec des parenthèses et une variable, comme chaîne de caractères (string).
+    L'expression contient "x", des parenthèses et les opérateurs suivants : <strong>+&nbsp;-&nbsp;*</strong>.
+    Il vous faut la convertir en  <em>polynôme</em>.
+    Les puissances de "x" seront représentées par "**".
+</p>
+<p> Le polynôme de réponse sera présenté au format suivant:
+  <p>
+<pre>
+     C<sub>N</sub>*x**n+C<sub>N1</sub>*x**(n-1)+...+C<sub>1</sub>*x+C<sub>0</sub>
+    </pre>
+<p>
+    où<br>
+    С<sub>N</sub>, С<sub>N1</sub> ...С<sub>1</sub>, С<sub>0</sub> - sont des coefficients de type entier (int).<br>
+    Si C = 0, alors ne pas montrer ce terme (ex. 2*x**2+3). La seule exception est zero tout seul (ex. "x-x" == "0").<br>
+    Si C = 1, alors ne pas montrer C. (ex. x**2+2*x). Seulement si ce n'est pas С<sub>0</sub>.<br>
+    Si C = -1, alors ne pas montrer C, seulement "-". (ex. x*x-x). Seulement si ce n'est pas С<sub>0</sub>.<br>
+    Si l'exposant de x est 1, alors ne pas montrer l'exposant (ex. 5*x).<br><br>
+    
+    Les termes doivent être triés par ordre décroissant, classés selon l'exposant de la variable.
+</p>
+
+
+<p><strong>Input: </strong>Une expression (string) (unicode).</p>
+
+<p><strong>Output: </strong>Un polynôme (string) sans espace.</p>
+
+<p><strong>Exemple:</strong></p>
+<pre class="brush: python">
+simplify("(x-1)*(x+1)") == "x**2-1"
+simplify("(x+1)*(x+1)") == "x**2+2*x+1"
+simplify("(x+3)*x*2-x*x") == "x**2+6*x"
+simplify("x+x*x+x*x*x") == "x**3+x**2+x"
+simplify("(2*x+3)*2-x+x*x*x*x") == "x**4+3*x+6"
+simplify("x*x-(x-1)*(x+1)-1") == "0"
+simplify("5-5-x") == "-x"
+simplify("x*x*x-x*x*x-1") == "-1"
+</pre>
+
+
+<p class="for_info_only">
+    <strong>Application: </strong>
+    C'est une application très utile pour les logiciels de calcul formel mathématique, 
+    ou simplement pour faciliter vos devoirs de maths.
+</p>
+
+<p>
+    <strong>Préconditions:</strong><br>
+    0 &lt; len(expr)<br>
